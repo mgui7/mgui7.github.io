@@ -33,16 +33,16 @@ ninja.data = [{
         },{id: "dropdown-bookshelf",
               title: "bookshelf",
               description: "",
-              section: "Dropdown",
+              section: "Navigation",
               handler: () => {
                 window.location.href = "/books/";
               },
             },{id: "dropdown-blog",
               title: "blog",
               description: "",
-              section: "Dropdown",
+              section: "Navigation",
               handler: () => {
-                window.location.href = "";
+                window.location.href = "/blog/";
               },
             },{
         id: 'social-email',

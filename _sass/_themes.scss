@@ -20,6 +20,8 @@
   --global-divider-color: rgba(0, 0, 0, 0.1);
   --global-card-bg-color: #{$white-color};
   --global-highlight-color: #{$red-color-dark};
+  --publication-project-color: #234e78;
+  --publication-project-hover-bg: #eef4fa;
   --global-back-to-top-bg-color: rgba(
     #{color.channel($black-color, "red", $space: rgb)},
     #{color.channel($black-color, "green", $space: rgb)},
@@ -78,6 +80,8 @@
 
 html[data-theme="dark"] {
   color-scheme: dark;
+  --publication-project-color: #91bce8;
+  --publication-project-hover-bg: #26384a;
   --global-bg-color: #{$grey-color-dark};
   --global-code-bg-color: #{$code-bg-color-dark};
   --global-text-color: #{$grey-color-light};

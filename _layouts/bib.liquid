@@ -1,6 +1,6 @@
 ---
 ---
-<div class="row">
+<div class="row{% if site.enable_publication_thumbnails and entry.preview %} publication-with-preview{% endif %}">
   {% if site.enable_publication_thumbnails %}
     <div class="col col-sm-2 abbr">
       {%- if entry.abbr -%}
@@ -27,20 +27,19 @@
       {% endif %}
       {% if entry.preview %}
         {% if entry.preview contains '://' %}
-          <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
+          {% assign entry_path = entry.preview %}
         {% else %}
-          {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
-          {%
-            include figure.liquid
-            loading="eager"
-            path=entry_path
-            sizes = "200px"
-            class="preview z-depth-1 rounded"
-            zoomable=true
-            avoid_scaling=true
-            alt=entry.preview
-          %}
+          {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' | relative_url %}
         {% endif %}
+        {% assign preview_link = entry.website | default: entry.code | default: entry_path %}
+        {% assign preview_alt = entry.title | escape %}
+        <a class="publication-thumbnail" href="{{ preview_link }}">
+          {% if entry.preview contains '://' %}
+            <img class="preview" src="{{ entry_path }}" alt="{{ preview_alt }}" loading="lazy">
+          {% else %}
+            {% include figure.liquid loading="lazy" path=entry_path sizes="(max-width: 575px) 210px, 180px" class="preview" alt=preview_alt %}
+          {% endif %}
+        </a>
       {% endif %}
     </div>
   {% endif %}

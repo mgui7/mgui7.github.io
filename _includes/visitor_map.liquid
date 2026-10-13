@@ -1,0 +1,8 @@
+{% if site.mapmyvisitors_script_url and site.mapmyvisitors_script_url != '' %}
+  <section class="visitor-map" aria-label="Visitor map">
+    <p class="visitor-map-title">Visitors around the world</p>
+    <div class="visitor-map-frame">
+      <script type="text/javascript" id="mapmyvisitors" src="{{ site.mapmyvisitors_script_url | escape }}"></script>
+    </div>
+  </section>
+{% endif %}
